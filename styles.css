@@ -35,36 +35,7 @@ body {
   width: 150px;
   height: 150px;
   object-fit: cover;
-  /* Formato coração */
-  clip-path: polygon(
-    50% 0%, 
-    61% 7%, 
-    68% 15%, 
-    75% 23%, 
-    80% 31%, 
-    84% 40%, 
-    86% 49%, 
-    87% 58%, 
-    86% 67%, 
-    82% 74%, 
-    77% 80%, 
-    70% 85%, 
-    62% 89%, 
-    54% 92%, 
-    46% 92%, 
-    38% 89%, 
-    30% 85%, 
-    23% 80%, 
-    18% 74%, 
-    14% 67%, 
-    13% 58%, 
-    14% 49%, 
-    16% 40%, 
-    20% 31%, 
-    25% 23%, 
-    32% 15%, 
-    39% 7%
-  );
+  border-radius: 50%;            /* torna a imagem completamente redonda */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
 }
