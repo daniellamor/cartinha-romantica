@@ -1,78 +1,36 @@
-/* Reset básico */
-* {
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Surpresa</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #990000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+    }
 
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background-color: #b30000; /* Vermelho romântico */
-  font-family: Arial, sans-serif;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
+    a {
+      font-size: 2rem;
+      color: white;
+      background-color: #cc0000;
+      padding: 15px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      transition: background 0.3s ease;
+    }
 
-.wrapper {
-  display: flex;
-  flex-wrap: wrap; /* permite quebra em telas pequenas */
-  align-items: center;
-  justify-content: center;
-  max-width: 1200px;
-  gap: 20px;
-}
-
-.photos {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.photos img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;            /* torna a imagem completamente redonda */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
-}
-
-.photos img:hover {
-  transform: scale(1.05);
-}
-
-.text {
-  max-width: 500px;
-  text-align: center;
-  padding: 0 20px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  flex: 1 1 300px; /* Responsividade do texto */
-}
-
-/* Responsividade para celular */
-@media (max-width: 768px) {
-  .wrapper {
-    flex-direction: column;
-    padding: 10px;
-  }
-  
-  .photos {
-    flex-direction: row;
-    justify-content: center;
-  }
-  
-  .photos img {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .text {
-    max-width: 100%;
-    font-size: 1rem;
-    padding: 10px 0;
-  }
-}
+    a:hover {
+      background-color: #e60000;
+    }
+  </style>
+</head>
+<body>
+  <a href="carta.html">clique aqui</a>
+</body>
+</html>
