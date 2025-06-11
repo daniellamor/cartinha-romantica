@@ -5,8 +5,14 @@
   padding: 0;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* impede "estouro" lateral */
+}
+
 body {
-  background: #b30000; /* ou use sua imagem de fundo aqui */
+  background: #b30000;
   font-family: Arial, sans-serif;
   color: white;
   display: flex;
@@ -16,10 +22,12 @@ body {
   padding: 20px;
 }
 
+/* Wrapper centraliza tudo */
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap; /* ajuda em telas pequenas */
   max-width: 1200px;
   width: 100%;
   gap: 20px;
@@ -30,6 +38,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex-shrink: 0; /* impede encolhimento em telas pequenas */
 }
 
 /* Fotos circulares */
@@ -47,7 +56,7 @@ body {
 }
 
 .text {
-  flex: 1 1 300px;       /* cresce para preencher espaço */
+  flex: 1 1 300px;
   max-width: 500px;
   text-align: center;
   padding: 0 20px;
@@ -55,21 +64,22 @@ body {
   line-height: 1.6;
 }
 
-/* ======== Mobile ======== */
+/* ======== Mobile (até tablets) ======== */
 @media (max-width: 768px) {
   .wrapper {
-    flex-direction: column;  /* empilha fotos e texto */
+    flex-direction: column;
     gap: 30px;
   }
 
   .photos {
-    flex-direction: row;     /* fotos lado a lado */
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
   }
 
   .photos img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
   }
 
   .text {
