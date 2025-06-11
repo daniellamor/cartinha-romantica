@@ -1,21 +1,28 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #b30000; /* Vermelho romântico */
   font-family: Arial, sans-serif;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .wrapper {
   display: flex;
+  flex-wrap: wrap; /* permite quebra em telas pequenas */
   align-items: center;
   justify-content: center;
   max-width: 1200px;
-  padding: 20px;
+  gap: 20px;
 }
 
 .photos {
@@ -25,17 +32,76 @@ body {
 }
 
 .photos img {
-  width: 220px;
-  height: 220px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
-  border-radius: 15px;
+  /* Formato coração */
+  clip-path: polygon(
+    50% 0%, 
+    61% 7%, 
+    68% 15%, 
+    75% 23%, 
+    80% 31%, 
+    84% 40%, 
+    86% 49%, 
+    87% 58%, 
+    86% 67%, 
+    82% 74%, 
+    77% 80%, 
+    70% 85%, 
+    62% 89%, 
+    54% 92%, 
+    46% 92%, 
+    38% 89%, 
+    30% 85%, 
+    23% 80%, 
+    18% 74%, 
+    14% 67%, 
+    13% 58%, 
+    14% 49%, 
+    16% 40%, 
+    20% 31%, 
+    25% 23%, 
+    32% 15%, 
+    39% 7%
+  );
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.photos img:hover {
+  transform: scale(1.05);
 }
 
 .text {
   max-width: 500px;
   text-align: center;
   padding: 0 20px;
-  font-size: 1.2rem;
-  line-height: 1.7;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  flex: 1 1 300px; /* Responsividade do texto */
+}
+
+/* Responsividade para celular */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .photos {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .photos img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .text {
+    max-width: 100%;
+    font-size: 1rem;
+    padding: 10px 0;
+  }
 }
