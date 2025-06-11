@@ -1,41 +1,43 @@
 /* Reset básico */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background-color: #b30000; /* Vermelho romântico */
+  background: #b30000; /* ou use sua imagem de fundo aqui */
   font-family: Arial, sans-serif;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   padding: 20px;
 }
 
 .wrapper {
   display: flex;
-  flex-wrap: wrap; /* permite quebra em telas pequenas */
   align-items: center;
   justify-content: center;
   max-width: 1200px;
+  width: 100%;
   gap: 20px;
 }
 
+/* Fotos em coluna no desktop */
 .photos {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+/* Fotos circulares */
 .photos img {
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border-radius: 50%;            /* torna a imagem completamente redonda */
+  border-radius: 50%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
 }
@@ -45,34 +47,34 @@ body {
 }
 
 .text {
+  flex: 1 1 300px;       /* cresce para preencher espaço */
   max-width: 500px;
   text-align: center;
   padding: 0 20px;
   font-size: 1.1rem;
   line-height: 1.6;
-  flex: 1 1 300px; /* Responsividade do texto */
 }
 
-/* Responsividade para celular */
+/* ======== Mobile ======== */
 @media (max-width: 768px) {
   .wrapper {
-    flex-direction: column;
-    padding: 10px;
+    flex-direction: column;  /* empilha fotos e texto */
+    gap: 30px;
   }
-  
+
   .photos {
-    flex-direction: row;
+    flex-direction: row;     /* fotos lado a lado */
     justify-content: center;
   }
-  
+
   .photos img {
     width: 120px;
     height: 120px;
   }
-  
+
   .text {
     max-width: 100%;
     font-size: 1rem;
-    padding: 10px 0;
+    padding: 0 10px;
   }
 }
