@@ -2,38 +2,33 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-  <title>Surpresa</title>
+  <title>Teste do Botão</title>
   <style>
     body {
-      margin: 0;
-      height: 100vh;
-      background-color: #990000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background: #ffe6f0;
+      font-family: Arial, sans-serif;
     }
 
-    a {
-      font-size: 2rem;
-      color: white;
-      background-color: #cc0000;
+    button {
       padding: 15px 30px;
+      font-size: 18px;
+      background-color: #ff6699;
+      color: white;
+      border: none;
       border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-      transition: background 0.3s ease;
+      cursor: pointer;
     }
 
-    a:hover {
-      background-color: #e60000;
+    button:hover {
+      background-color: #ff3366;
     }
   </style>
 </head>
 <body>
-  <a href="carta.html">clique aqui</a>
+  <h1>Feliz Dia dos Namorados 💖</h1>
+  <p>Preparei uma surpresa pra você...</p>
+  <button onclick="window.location.href='carta.html'">Clique aqui</button>
 </body>
 </html>
