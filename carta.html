@@ -1,35 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carta Romântica</title>
+  <meta charset="UTF-8" />
+  <title>Para o meu amor</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="wrapper">
-    <div class="photos">
-      <img src="foto1.jpeg" alt="Foto 1">
-      <img src="foto2.jpeg" alt="Foto 2">
-    </div>
+<body class="carta">
+  <audio autoplay loop>
+    <source src="realidade-ou-fantasia.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
 
-    <div class="text">
-      <p> Oi amor, eu sou cheia de invenção kkkkk mas desde que nos conhecemos minha vida ganhou outra cor. Foi como se tudo ao meu redor ficasse mais leve e alegre: sua presença simplesmente transformou meus dias.</p>
+  <div class="coracoes"></div>
 
-      <p>Você chegou suave, sem alarde, foi conquistando espaço aos poucos e, sem perceber, abriu um coração que eu jurava estar trancado. Achei que não queria mais me entregar, mas você me fez querer de novo.</p>
-
-      <p>Não precisamos de rótulos para saber o que está acontecendo entre a gente. Eu sinto o que sinto, e é tão intenso e sincero que já imagino mil planos: viagens, domingos preguiçosos, risadas até a barriga doer, conquistas divididas e sonhos realizados lado a lado.</p>
-
-      <p>Você me faz tão bem. Me faz rir mesmo nos dias cinza, me acalenta quando tudo aperta e me ensina a acreditar que o amor pode e deve ser leve, gostoso e verdadeiro. Tenho certeza de que, se eu dependesse de mim, esse sentimento só tem a crescer.</p>
-
-      <p>Obrigada por ser quem você é e por entrar na minha vida daquele jeitinho único. Você já vale mais do que eu jamais poderia imaginar.</p>
-    </div>
-    </div>
-
-    <div class="photos">
-      <img src="foto3.jpeg" alt="Foto 3">
-      <img src="foto4.jpeg" alt="Foto 4">
-    </div>
+  <div class="carousel">
+    <img class="slide active" src="foto1.jpeg" alt="Foto 1">
+    <img class="slide" src="foto2.jpeg" alt="Foto 2">
+    <img class="slide" src="foto3.jpeg" alt="Foto 3">
+    <img class="slide" src="foto4.jpeg" alt="Foto 4">
   </div>
+
+  <div class="cronometro" id="timer">Carregando...</div>
+
+  <div class="mensagem">
+    <p>Oi amor, eu sou cheia de invenção kkkkk mas desde que nos conhecemos minha vida ganhou outra cor.
+    Foi como se tudo ao meu redor ficasse mais leve e alegre: sua presença simplesmente transformou meus dias.</p>
+
+    <p>Você chegou suave, sem alarde, foi conquistando espaço aos poucos e, sem perceber, abriu um coração que eu jurava estar trancado.
+    Achei que não queria mais me entregar, mas você me fez querer de novo.</p>
+
+    <p>Não precisamos de rótulos para saber o que está acontecendo entre a gente.
+    Eu sinto o que sinto, e é tão intenso e sincero que já imagino mil planos: viagens, domingos preguiçosos, risadas até a barriga doer, conquistas divididas e sonhos realizados lado a lado.</p>
+
+    <p>Você me faz tão bem. Me faz rir mesmo nos dias cinza, me acalenta quando tudo aperta e me ensina a acreditar que o amor pode e deve ser leve, gostoso e verdadeiro.
+    Tenho certeza de que, se eu dependesse de mim, esse sentimento só tem a crescer.</p>
+
+    <p>Obrigada por ser quem você é e por entrar na minha vida daquele jeitinho único.
+    Você já vale mais do que eu jamais poderia imaginar.</p>
+  </div>
+
+  <script>
+    // Cronômetro
+    function atualizarCronometro() {
+      const dataInicio = new Date("2025-03-30T00:00:00");
+      const agora = new Date();
+      const diff = agora - dataInicio;
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("timer").textContent =
+        `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos juntos 💞`;
+    }
+
+    setInterval(atualizarCronometro, 1000);
+    atualizarCronometro();
+
+    // Corações animados
+    const coracoesContainer = document.querySelector(".coracoes");
+    setInterval(() => {
+      const heart = document.createElement("span");
+      heart.classList.add("heart");
+      heart.textContent = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+      coracoesContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 300);
+
+    // Carrossel de fotos
+    const slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    showSlide(currentSlide);
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 3000);
+  </script>
 </body>
 </html>
