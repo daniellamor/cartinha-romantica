@@ -31,6 +31,12 @@
 
   <div class="cronometro" id="timer">Carregando...</div>
 
+  <div class="carousel2">
+    <img class="slide2 active" src="foto5.jpeg" alt="Foto 5">
+    <img class="slide2" src="foto6.jpeg" alt="Foto 6">
+    <img class="slide2" src="foto7.jpeg" alt="Foto 7">
+  </div>
+
   <div class="mensagem">
     <p>Oi amor, eu sou cheia de invenção kkkkk mas desde que nos conhecemos minha vida ganhou outra cor.
     Foi como se tudo ao meu redor ficasse mais leve e alegre: sua presença simplesmente transformou meus dias.</p>
@@ -46,6 +52,12 @@
 
     <p>Obrigada por ser quem você é e por entrar na minha vida daquele jeitinho único.
     Você já vale mais do que eu jamais poderia imaginar.</p>
+  </div>
+
+  <div class="btn-musica">
+    <button onclick="window.open('https://www.youtube.com/watch?v=Zu5l-XfZEZI', '_blank')">
+      clique aqui 🎶
+    </button>
   </div>
 
   <script>
@@ -83,7 +95,7 @@
       setTimeout(() => heart.remove(), 5000);
     }, 300);
 
-    // Carrossel
+    // Carrossel 1
     const slides = document.querySelectorAll(".slide");
     let currentSlide = 0;
 
@@ -98,6 +110,23 @@
     setInterval(() => {
       currentSlide = (currentSlide + 1) % slides.length;
       showSlide(currentSlide);
+    }, 3000);
+
+    // Carrossel 2
+    const slides2 = document.querySelectorAll(".slide2");
+    let currentSlide2 = 0;
+
+    function showSlide2(index) {
+      slides2.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    showSlide2(currentSlide2);
+
+    setInterval(() => {
+      currentSlide2 = (currentSlide2 + 1) % slides2.length;
+      showSlide2(currentSlide2);
     }, 3000);
   </script>
 </body>
