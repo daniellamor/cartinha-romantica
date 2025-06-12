@@ -1,54 +1,84 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #ffe6f0;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
   overflow-x: hidden;
+  color: #fff;
 }
 
 /* Página inicial */
 .inicio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(160deg, #0a0a0a, #1a1a1a);
   text-align: center;
-  padding-top: 100px;
+  padding: 20px;
+}
+
+.inicio h1 {
+  font-size: 36px;
+  color: #ff66cc;
+  margin-bottom: 20px;
+}
+
+.inicio p {
+  font-size: 20px;
+  margin-bottom: 40px;
+  color: #eee;
 }
 
 .inicio button {
   padding: 15px 30px;
   font-size: 18px;
   border: none;
-  background-color: #ff6699;
+  background-color: #ff3399;
   color: white;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .inicio button:hover {
-  background-color: #ff3366;
+  background-color: #e60073;
+  transform: scale(1.05);
 }
 
 /* Página da carta */
 .carta {
   text-align: center;
   padding: 20px;
+  background: #000;
+}
+
+.titulo {
+  font-size: 36px;
+  margin-top: 20px;
+  color: #ff66cc;
+  font-weight: bold;
 }
 
 .carousel {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px;
+  height: 460px;        /* aumentado para maior espaço vertical */
   overflow: hidden;
   position: relative;
-  margin-bottom: 20px;
+  margin: 60px 0;       /* margem maior para separar do cronômetro */
 }
 
 .slide {
-  width: 250px;
+  width: 420px;         /* fotos maiores */
   height: auto;
-  margin: 0 10px;
+  margin: 0 20px;       /* margem lateral maior para espaçamento */
   opacity: 0;
   transition: opacity 1s ease-in-out;
   position: absolute;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
 }
 
 .slide.active {
@@ -56,22 +86,37 @@ body {
   position: relative;
 }
 
+/* Cronômetro com quadradinhos transparentes */
 .cronometro {
-  font-size: 18px;
-  margin: 20px auto;
-  color: #ff3399;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 60px auto;    /* mais espaçamento acima */
+  flex-wrap: wrap;
 }
 
+.cronometro span {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 22px 28px;    /* aumento no padding */
+  border-radius: 12px;
+  font-size: 22px;       /* fonte maior */
+  font-weight: bold;
+  color: #ff66cc;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 14px rgba(255, 105, 180, 0.4);
+}
+
+/* Texto da carta */
 .mensagem {
-  max-width: 600px;
+  max-width: 750px;
   margin: auto;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #333;
-  background-color: #fff0f5;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  line-height: 1.8;
+  color: #eee;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
 }
 
 /* Corações */
@@ -89,6 +134,7 @@ body {
   position: absolute;
   font-size: 24px;
   animation: cair 5s linear infinite;
+  color: #ff66cc;
 }
 
 @keyframes cair {
